@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Track Renewals PDF Library</title>
+  <title>Track Renewals Documentation</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: "Segoe UI", sans-serif;
       background: #f4f7fa;
@@ -14,29 +18,40 @@
     }
 
     header {
-      background-color: #2c3e50;
+      background: linear-gradient(to right, #2c3e50, #34495e);
       color: #fff;
-      padding: 20px 30px;
+      padding: 40px 20px;
       text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
-    h1 {
+    header h1 {
       margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
     }
 
     .container {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
-    input[type="text"] {
+    #searchInput {
       width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 20px;
+      padding: 14px 18px;
       font-size: 16px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: 0.2s ease;
+    }
+
+    #searchInput:focus {
+      outline: none;
+      border-color: #2980b9;
+      box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
     }
 
     ul {
@@ -46,30 +61,42 @@
 
     li {
       background: #fff;
-      margin-bottom: 10px;
-      padding: 15px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      transition: 0.2s ease-in-out;
+      margin-bottom: 12px;
+      padding: 18px;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      transition: transform 0.1s ease-in-out, background 0.2s ease;
     }
 
     li:hover {
-      background-color: #eef2f7;
+      background-color: #f0f6fc;
+      transform: translateY(-1px);
     }
 
     a {
       text-decoration: none;
       color: #2980b9;
-      font-weight: 500;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #888;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Track Renewals PDF Library</h1>
+    <h1>Track Renewals Documentation</h1>
   </header>
   <div class="container">
-    <input type="text" id="searchInput" placeholder="Search for PDFs...">
+    <input type="text" id="searchInput" placeholder="Search for documents...">
     <ul id="pdfList">
       <li><a href="0002664 Code of Practice.pdf" target="_blank">0002664 Code of Practice.pdf</a></li>
       <li><a href="0102227 Remove LX concrete.pdf" target="_blank">0102227 Remove LX concrete.pdf</a></li>
@@ -87,11 +114,20 @@
       <li><a href="Verse Testing Priming the jack.pdf" target="_blank">Verse Testing Priming the jack.pdf</a></li>
       <li><a href="WIN-RTS-RTM-093handgrinder.pdf" target="_blank">WIN-RTS-RTM-093handgrinder.pdf</a></li>
       <li><a href="WIN-RTS-RTM-096.trackmaintenancehirail.pdf" target="_blank">WIN-RTS-RTM-096.trackmaintenancehirail.pdf</a></li>
-      <li><a href="WIN-RTS-RTM-183FEL.pdf" target="_blank">WIN-RTS-RTM-096.trackmaintenancehirail.pdf</a></li>
+      <li><a href="WIN-RTS-RTM-183FEL.pdf" target="_blank">WIN-RTS-RTM-183FEL.pdf</a></li>
     </ul>
   </div>
 
+  <footer>
+    &copy; {year} Exact Rail Services — All Rights Reserved
+  </footer>
+
   <script>
+    // Auto update year in footer
+    document.querySelector("footer").innerHTML =
+      "&copy; " + new Date().getFullYear() + " Exact Rail Services — All Rights Reserved";
+
+    // Search filtering
     const searchInput = document.getElementById('searchInput');
     const listItems = document.querySelectorAll('#pdfList li');
 
