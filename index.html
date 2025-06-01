@@ -16,7 +16,7 @@
       z-index: 1;
     }
 
-    /* Background animation layer */
+    /* Background image covering entire screen */
     body::before {
       content: "";
       position: fixed;
@@ -24,7 +24,7 @@
       width: 100%;
       height: 100%;
       background: url('IMG_6736.JPG') center center / cover no-repeat;
-      opacity: 0.15;
+      opacity: 0.25;
       z-index: -1;
       animation: pan 60s linear infinite;
     }
@@ -35,11 +35,9 @@
     }
 
     header {
-      background: rgba(44, 62, 80, 0.95);
       color: #fff;
       padding: 40px 20px 20px;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     .header-logo-wrap {
@@ -59,6 +57,8 @@
       margin: 0;
       font-size: 2.5rem;
       letter-spacing: 1px;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
 
     nav {
@@ -92,10 +92,10 @@
     .container {
       max-width: 960px;
       margin: 30px auto;
-      padding: 0 20px;
-      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
     #searchInput {
@@ -113,54 +113,6 @@
       outline: none;
       border-color: #2980b9;
       box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
-    }
-
-    .scrollable-section {
-      max-height: 500px;
-      overflow-y: auto;
-      padding-right: 10px;
-      margin-bottom: 40px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
-
-    .scrollable-section ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .scrollable-section li {
-      background: #fff;
-      margin-bottom: 12px;
-      padding: 18px;
-      border-radius: 10px;
-      border: 1px solid #e0e0e0;
-      transition: transform 0.1s ease-in-out, background 0.2s ease;
-    }
-
-    .scrollable-section li:hover {
-      background-color: #f0f6fc;
-      transform: translateY(-1px);
-    }
-
-    .scrollable-section a {
-      text-decoration: none;
-      color: #2980b9;
-      font-weight: 600;
-    }
-
-    .scrollable-section a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      color: #888;
     }
 
     @media (max-width: 600px) {
@@ -189,6 +141,7 @@
       <a href="#" class="active" onclick="showPage('docs', this)">Documentation</a>
       <a href="#" onclick="showPage('websites', this)">TrackRenewals Websites</a>
     </nav>
+  </header>
   </header>
 
   <div class="container">
