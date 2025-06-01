@@ -184,29 +184,41 @@
       <li><a href="manuals/SparePartManualRosenquvistCD400.pdf" target="_blank">SparePartManualRosenquvistCD400.pdf</a></li>
 
       </ul>
-    </div>
-
-    <div id="websites" class="scrollable-section" style="display:none;">
-      <ul>
-        <li><a href="https://www.trackrenewals.com.au" target="_blank">HV Fault Reporting</a></li>
-        <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=U10MhEWfcEWFe-387ZTRryoNXri1dH1HmHXtQRkLmvFUOUEyQTk2VlZEN0tJM0ZWQjNYV1FIRzY1RC4u" target="_blank">Order Uniform</a></li>
-        <li><a href="https://bhp.workflowcloud.com/forms/c94dea6d-1618-42c9-b78b-50e90d0cb3ff" target="_blank">POLO</a></li>
-        <!-- Add more external links here -->
-      </ul>
-    </div>
   </div>
 
-  <footer>
-    &copy; <span id="year"></span> Exact Rail Services — All Rights Reserved
-  </footer>
+  <!-- Websites Section -->
+  <div id="websites" class="scrollable-section" style="display: none;">
+    <ul>
+      <li><a href="https://www.trackrenewals.com.au" target="_blank">HV Fault Reporting</a></li>
+      <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=U10MhEWfcEWFe-387ZTRryoNXri1dH1HmHXtQRkLmvFUOUEyQTk2VlZEN0tJM0ZWQjNYV1FIRzY1RC4u" target="_blank">Order Uniform</a></li>
+      <li><a href="https://bhp.workflowcloud.com/forms/c94dea6d-1618-42c9-b78b-50e90d0cb3ff" target="_blank">POLO</a></li>
+    </ul>
+  </div>
+</div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<footer>
+  &copy; <span id="year"></span> Exact Rail Services — All Rights Reserved
+</footer>
 
-    function showPage(section) {
-      document.getElementById("docs").style.display = section === 'docs' ? 'block' : 'none';
-      document.getElementById("websites").style.display = section === 'websites' ? 'block' : 'none';
-    }
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Simple page toggle script
+  function showPage(section) {
+    document.getElementById("docs").style.display = section === 'docs' ? 'block' : 'none';
+    document.getElementById("websites").style.display = section === 'websites' ? 'block' : 'none';
+  }
+
+  // Search functionality
+  const searchInput = document.getElementById('searchInput');
+  const listItems = document.querySelectorAll('#pdfList li');
+  searchInput.addEventListener('input', function () {
+    const filter = this.value.toLowerCase();
+    listItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(filter) ? '' : 'none';
+    });
+  });
+</script>
 </body>
 </html>
